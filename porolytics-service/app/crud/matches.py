@@ -31,9 +31,6 @@ def get_match_details(region: str, match_id: str, puuid: str) -> schemas.Match:
     response.raise_for_status()
     data = response.json()
 
-    with open("/Users/niuniu/Desktop/match.txt", "w") as f:
-        print(data, file=f)
-
     participant_index = data["metadata"]["participants"].index(puuid)
     participant_data = data["info"]["participants"][participant_index]
 
